@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SPAN 2101 — Guía de Estudio: Examen Parcial</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sw:260px;
+  --navy:#1A3A5C; --navy-dk:#0e2438; --navy-lt:#EFF8FF;
+  --green:#1A5C3A; --green-lt:#EBF8F0;
+  --tl:#0D5C6B; --tl-lt:#E0F4F7;
+  --pl:#6B2D8B; --pl-lt:#F5EDF5;
+  --gd:#8B6000; --gd-lt:#FFF8E1;
+  --cr:#8B1A1A; --cr-lt:#FFF0F0;
+  --ink:#1A1A2A; --mid:#555566; --smoke:#F7F6F4; --bone:#F2F0EB; --rule:#E0DDD8;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Source Serif 4',Georgia,serif;font-size:17px;line-height:1.85;color:var(--ink);background:var(--bone)}
+
+/* ── SIDEBAR ── */
+.sidebar{position:fixed;top:0;left:0;width:var(--sw);height:100vh;background:var(--navy-dk);overflow-y:auto;z-index:100;display:flex;flex-direction:column}
+.sb-brand{padding:22px 20px 16px;border-bottom:1px solid rgba(255,255,255,.08)}
+.sb-brand .kicker{font-family:'JetBrains Mono',monospace;font-size:12px;color:rgba(255,255,255,.55);letter-spacing:.14em;text-transform:uppercase}
+.sb-brand .name{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:#fff;line-height:1.2;margin:4px 0 2px}
+.sb-brand .sub{font-size:13px;font-style:italic;color:rgba(255,255,255,.65)}
+.nav-group{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.45);padding:16px 20px 4px}
+.nav-list{list-style:none}
+.nav-list a{display:flex;align-items:center;gap:10px;padding:10px 20px;font-size:14px;color:rgba(255,255,255,.82);text-decoration:none;transition:background .15s;min-height:44px}
+.nav-list a:hover,.nav-list a.active{background:rgba(255,255,255,.08);color:#fff}
+.nav-list a .num{font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(255,255,255,.4);min-width:20px}
+.sb-footer{margin-top:auto;padding:14px 20px;border-top:1px solid rgba(255,255,255,.08);font-family:'JetBrains Mono',monospace;font-size:12px;color:rgba(255,255,255,.5)}
+
+/* ── MAIN ── */
+.main{margin-left:var(--sw);padding-top:52px}
+.hero{background:linear-gradient(135deg,var(--navy-dk) 0%,var(--navy) 60%,#0e4a2e 100%);padding:52px 52px 40px;color:#fff}
+.hero-kicker{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:10px}
+.hero-title{font-family:'Playfair Display',serif;font-size:38px;font-weight:900;line-height:1.1;margin-bottom:10px}
+.hero-sub{font-size:18px;font-style:italic;color:rgba(255,255,255,.72);margin-bottom:20px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-family:'JetBrains Mono',monospace;font-size:12px;padding:6px 14px;border-radius:20px;background:rgba(255,255,255,.1);color:rgba(255,255,255,.85);border:1px solid rgba(255,255,255,.15)}
+.chip.gold{background:rgba(139,96,0,.45);border-color:rgba(245,200,66,.4);color:#F5E8A0}
+
+.alert-bar{background:var(--gd-lt);border-left:4px solid var(--gd);padding:16px 52px;font-size:16px;color:var(--gd)}
+
+.content{padding:40px 52px;max-width:960px}
+
+/* ── CARDS ── */
+.card{background:#fff;border:1px solid var(--rule);border-radius:12px;margin-bottom:32px;overflow:hidden}
+.card-head{display:flex;align-items:center;gap:16px;padding:20px 24px;color:#fff}
+.card-head.nv{background:var(--navy)}
+.card-head.gr{background:var(--green)}
+.card-head.tl{background:var(--tl)}
+.card-head.pl{background:var(--pl)}
+.card-head.gd{background:var(--gd)}
+.card-head.cr{background:var(--cr)}
+.card-num{font-family:'Playfair Display',serif;font-size:42px;font-weight:900;opacity:.35;line-height:1;min-width:50px}
+.card-title .lbl{font-family:'JetBrains Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:.1em;opacity:.7;margin-bottom:2px}
+.card-title h2{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;line-height:1.2}
+.card-chap{margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:12px;padding:5px 11px;border-radius:20px;background:rgba(255,255,255,.15);white-space:nowrap}
+.card-body{padding:28px 28px 20px;background:#fff}
+
+/* ── SUBSECTIONS ── */
+.sub{margin-bottom:24px}
+.sub-title{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;padding-bottom:6px;border-bottom:2px solid;margin-bottom:14px}
+.sub-title.nv{color:var(--navy);border-color:var(--navy)}
+.sub-title.gr{color:var(--green);border-color:var(--green)}
+.sub-title.tl{color:var(--tl);border-color:var(--tl)}
+.sub-title.pl{color:var(--pl);border-color:var(--pl)}
+.sub-title.gd{color:var(--gd);border-color:var(--gd)}
+.sub-title.cr{color:var(--cr);border-color:var(--cr)}
+
+/* ── INFO BOXES ── */
+.box{border-radius:8px;padding:18px 22px;margin:14px 0;font-size:16px;line-height:1.85}
+.box.nv{background:var(--navy-lt);border-left:4px solid var(--navy)}
+.box.gr{background:var(--green-lt);border-left:4px solid var(--green)}
+.box.tl{background:var(--tl-lt);border-left:4px solid var(--tl)}
+.box.pl{background:var(--pl-lt);border-left:4px solid var(--pl)}
+.box.gd{background:var(--gd-lt);border-left:4px solid var(--gd)}
+.box.cr{background:var(--cr-lt);border-left:4px solid var(--cr)}
+.box .ex{font-style:italic;color:var(--tl);display:block;margin:5px 0 5px 18px;font-size:15.5px}
+.box strong{font-weight:700}
+
+/* ── RULE-INFO BOXES ── */
+.rule-box{border:1px solid var(--rule);border-radius:10px;overflow:hidden;margin:14px 0}
+.rb-head{display:flex;align-items:center;gap:12px;padding:12px 18px}
+.rb-head.nv{background:var(--navy)}
+.rb-head.gr{background:var(--green)}
+.rb-head.pl{background:var(--pl)}
+.rb-head.gd{background:var(--gd)}
+.badge{font-family:'JetBrains Mono',monospace;font-size:12px;padding:3px 10px;border-radius:20px;background:rgba(255,255,255,.15);color:#fff}
+.rb-title{font-weight:700;color:#fff;font-size:15px}
+.ri-body{padding:16px 18px;font-size:16px;line-height:1.85;background:#fafafa}
+.ri-body .ex{font-style:italic;color:var(--tl);display:block;margin:6px 0;font-size:15.5px}
+.ri-body .why{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--gd);display:block;margin-top:2px}
+
+/* ── TABLES ── */
+.vt{width:100%;border-collapse:collapse;font-size:15.5px}
+.vt th{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:11px 15px;text-align:left}
+.vt th.nv{background:var(--navy);color:#fff}
+.vt th.gr{background:var(--green);color:#fff}
+.vt th.tl{background:var(--tl);color:#fff}
+.vt th.pl{background:var(--pl);color:#fff}
+.vt th.gd{background:var(--gd);color:#fff}
+.vt td{padding:11px 15px;border-bottom:1px solid #F0ECE6;vertical-align:top;line-height:1.7}
+.vt tr.alt td{background:#FAFAF8}
+.vt td:first-child{font-weight:600;color:var(--ink)}
+.vt td .note{font-size:13px;color:var(--mid);display:block;margin-top:2px}
+.vt tr:hover td{background:#EDF7F9}
+
+/* ── CONJUGATION GRID ── */
+.conj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--rule);border-radius:8px;overflow:hidden;margin:12px 0;font-size:15px}
+.conj-cell{padding:10px 12px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.conj-cell:nth-child(3n){border-right:none}
+.conj-cell:nth-last-child(-n+3){border-bottom:none}
+.conj-cell .subj{font-size:13px;color:var(--mid);display:block}
+.conj-cell .form{font-weight:700;color:var(--cr);font-family:'JetBrains Mono',monospace}
+.conj-cell.alt{background:#FAFAF8}
+
+/* ── CONTRAST TABLE ── */
+.ct{width:100%;border-collapse:collapse;font-size:15px;margin:12px 0}
+.ct th{padding:13px 15px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#fff;text-align:left}
+.ct th.nv{background:var(--navy)}
+.ct th.gr{background:var(--green)}
+.ct td{padding:11px 15px;border-bottom:1px solid var(--rule);vertical-align:top}
+.ct td.lbl{font-style:normal;color:var(--ink);font-weight:600;font-size:15px}
+.ct tr:nth-child(even) td{background:#FAFAF8}
+.ct td em{color:var(--tl);font-style:italic}
+
+/* ── TRIGGER PILLS ── */
+.tpills{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin:14px 0}
+.tpill{background:var(--pl-lt);border:1px solid rgba(107,45,139,.15);border-radius:8px;padding:12px 15px}
+.tpill .term{font-family:'JetBrains Mono',monospace;font-weight:600;color:var(--pl);font-size:14px;display:block;margin-bottom:4px}
+.tpill .ex{color:var(--mid);font-style:italic;font-size:14.5px}
+
+/* ── IRREGULAR MANDATOS ── */
+.irr-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0}
+.irr-cell{background:var(--navy-lt);border:1px solid rgba(26,58,92,.15);border-radius:8px;padding:12px 10px;text-align:center}
+.irr-cell .inf{font-size:13px;color:var(--mid);margin-bottom:4px}
+.irr-cell .form{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--navy)}
+
+/* ── NEG MANDATOS ── */
+.neg-box{background:var(--cr-lt);border:1px solid rgba(139,26,26,.15);border-radius:8px;padding:16px 18px;margin:12px 0;font-size:16px}
+.neg-box .formula{font-family:'JetBrains Mono',monospace;font-size:15px;background:var(--cr);color:#fff;display:inline-block;padding:4px 14px;border-radius:20px;margin-bottom:10px}
+
+/* ── TIPS ── */
+.tips-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0}
+.tip{background:var(--smoke);border-radius:8px;padding:18px 20px;border:1px solid var(--rule);font-size:15.5px;line-height:1.75}
+.tip-icon{font-size:22px;display:block;margin-bottom:8px}
+.tip-head{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mid);margin-bottom:6px}
+
+/* ── BACK TO TOP ── */
+.back-top{position:fixed;bottom:28px;right:28px;background:var(--navy);color:#fff;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;text-decoration:none;box-shadow:0 3px 12px rgba(0,0,0,.25);z-index:200;transition:background .2s}
+.back-top:hover{background:var(--tl)}
+
+/* ── A11Y TOOLBAR ── */
+.a11y-bar{position:fixed;top:0;left:var(--sw);right:0;background:rgba(14,36,56,.96);backdrop-filter:blur(6px);padding:7px 52px;display:flex;align-items:center;gap:8px;z-index:150;border-bottom:1px solid rgba(255,255,255,.1)}
+.a11y-label{font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(255,255,255,.6);letter-spacing:.1em;text-transform:uppercase;margin-right:4px}
+.a11y-btn{font-family:'Playfair Display',serif;font-weight:700;background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.2);border-radius:6px;padding:4px 12px;cursor:pointer;font-size:13px;transition:background .15s;min-height:32px}
+.a11y-btn:hover,.a11y-btn.active{background:rgba(245,200,66,.25);border-color:#F5C842;color:#F5C842}
+.a11y-divider{width:1px;height:20px;background:rgba(255,255,255,.15);margin:0 4px}
+
+body.size-large{font-size:19px}
+body.size-large .vt,.size-large .box,.size-large .ri-body,.size-large .ct{font-size:18px}
+body.size-xlarge{font-size:22px}
+body.size-xlarge .vt,.size-xlarge .box,.size-xlarge .ri-body,.size-xlarge .ct{font-size:21px}
+body.size-xlarge .card-title h2{font-size:26px}
+
+body.high-contrast{background:#000;color:#fff}
+body.high-contrast .card{background:#111;border-color:#555}
+body.high-contrast .card-body{background:#111}
+body.high-contrast .vt td{border-color:#444;color:#f0f0f0}
+body.high-contrast .vt tr.alt td{background:#1a1a1a}
+body.high-contrast .box{border-color:#888}
+body.high-contrast .box.nv{background:#001828}
+body.high-contrast .box.gr{background:#001a0e}
+body.high-contrast .box.tl{background:#001820}
+body.high-contrast .box.pl{background:#1a0a1a}
+body.high-contrast .box.gd{background:#1a1200}
+body.high-contrast .box.cr{background:#1a0000}
+body.high-contrast .tip{background:#1a1a1a;border-color:#444}
+body.high-contrast .tip p{color:#ccc}
+body.high-contrast .conj-cell{background:#111;border-color:#444}
+body.high-contrast .conj-cell.alt{background:#1a1a1a}
+body.high-contrast .irr-cell{background:#001828;border-color:#446}
+body.high-contrast .irr-cell .form{color:#7fd8e8}
+body.high-contrast .tpill{background:#1a0a1a;border-color:#8a4a8a}
+body.high-contrast .rule-box{background:#111;border-color:#555}
+body.high-contrast .ri-body{background:#1a1a1a;color:#e0e0e0}
+body.high-contrast .neg-box{background:#1a0000}
+
+:focus-visible{outline:3px solid #F5C842;outline-offset:3px;border-radius:3px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media(max-width:860px){
+  :root{--sw:0px}
+  .sidebar{display:none}
+  .a11y-bar{left:0;padding-left:16px}
+  .hero,.content{padding-left:20px;padding-right:20px}
+  .alert-bar{padding-left:20px;padding-right:20px}
+  .irr-grid{grid-template-columns:repeat(2,1fr)}
+  .tips-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav class="sidebar" aria-label="Navegación">
+  <div class="sb-brand">
+    <div class="kicker">SPAN 2101 · Spring 2026</div>
+    <div class="name">Guía de Estudio</div>
+    <div class="sub">Examen Parcial · Caps. 12 &amp; 13</div>
+  </div>
+
+  <div class="nav-group">Gramática 33</div>
+  <ul class="nav-list">
+    <li><a href="#gram33a"><span class="num">▸</span>Mandatos afirmativos</a></li>
+    <li><a href="#gram33b"><span class="num">▸</span>Mandatos negativos</a></li>
+    <li><a href="#gram33c"><span class="num">▸</span>Irregulares</a></li>
+  </ul>
+
+  <div class="nav-group">Gramática 34 &amp; 35</div>
+  <ul class="nav-list">
+    <li><a href="#gram34"><span class="num">34</span>Subj. Introducción</a></li>
+    <li><a href="#gram35"><span class="num">35</span>Subj. Influencia</a></li>
+    <li><a href="#gram35b"><span class="num">35+</span>Inf. vs. Subj.</a></li>
+  </ul>
+
+  <div class="nav-group">Vocabulario</div>
+  <ul class="nav-list">
+    <li><a href="#vocab-ciudad"><span class="num">▸</span>La ciudad</a></li>
+    <li><a href="#vocab-tec"><span class="num">▸</span>La tecnología</a></li>
+    <li><a href="#vocab-art"><span class="num">▸</span>Los artistas</a></li>
+  </ul>
+
+  <div class="nav-group">Más</div>
+  <ul class="nav-list">
+    <li><a href="#tips"><span class="num">★</span>Tips del examen</a></li>
+    <li><a href="#exam-flag"><span class="num">⚠</span>Nota del examen</a></li>
+  </ul>
+
+  <div class="sb-footer">LSU · Dra. Naranjo · 2026</div>
+</nav>
+
+<!-- A11Y TOOLBAR -->
+<div class="a11y-bar" role="toolbar" aria-label="Opciones de accesibilidad">
+  <span class="a11y-label">Texto:</span>
+  <button class="a11y-btn active" id="btnNormal" onclick="setSize('normal')" aria-label="Tamaño normal">A</button>
+  <button class="a11y-btn" id="btnLarge" onclick="setSize('large')" aria-label="Texto grande">A+</button>
+  <button class="a11y-btn" id="btnXLarge" onclick="setSize('xlarge')" aria-label="Texto muy grande">A++</button>
+  <span class="a11y-divider"></span>
+  <button class="a11y-btn" id="btnContrast" onclick="toggleContrast()" aria-label="Alto contraste">◑ Contraste</button>
+</div>
+
+<div class="main">
+<header class="hero" id="top">
+  <div class="hero-kicker">SPAN 2101 · Examen Parcial · Spring 2026</div>
+  <h1 class="hero-title">Guía de Estudio</h1>
+  <p class="hero-sub">Capítulos 12 &amp; 13 — Mandatos, Subjuntivo e Vocabulario</p>
+  <div class="chips">
+    <span class="chip gold">Gramáticas 33 · 34 · 35</span>
+    <span class="chip">Mandatos informales (tú)</span>
+    <span class="chip">Subjuntivo: Introducción</span>
+    <span class="chip">Subjuntivo: Influencia</span>
+    <span class="chip">Vocabulario Caps. 12 &amp; 13</span>
+  </div>
+</header>
+
+<div class="alert-bar" id="exam-flag">
+  ⚠️ <strong>Nota sobre el examen oficial:</strong> Q1 («Prefiero _______ este documento») — la respuesta correcta es <strong>imprimir</strong> (infinitivo), NO subjuntivo. Cuando el sujeto no cambia, se usa infinitivo. ¡Ojo con esta distinción!
+</div>
+
+<div class="content">
+
+<!-- ═══════════════════════════════════
+     GRAM 33 — MANDATOS AFIRMATIVOS
+════════════════════════════════════ -->
+<div class="card" id="gram33a">
+  <div class="card-head nv">
+    <div class="card-num">33</div>
+    <div class="card-title">
+      <div class="lbl">Gramática · Cap. 12</div>
+      <h2>Mandatos Informales (tú) — Afirmativos</h2>
+    </div>
+    <span class="card-chap">Cap. 12</span>
+  </div>
+  <div class="card-body">
+
+    <div class="sub">
+      <div class="sub-title nv">Formación: mandatos afirmativos regulares</div>
+      <div class="box nv">
+        <p><strong>Regla:</strong> El mandato afirmativo (tú) = la forma <strong>él/ella</strong> del presente de indicativo.</p>
+        <span class="ex">hablar → él <em>habla</em> → ¡<strong>Habla</strong> más despacio!</span>
+        <span class="ex">comer → él <em>come</em> → ¡<strong>Come</strong> tus verduras!</span>
+        <span class="ex">escribir → él <em>escribe</em> → ¡<strong>Escribe</strong> tu nombre!</span>
+      </div>
+    </div>
+
+    <div class="sub">
+      <div class="sub-title nv" id="gram33c">8 irregulares — memorízalos</div>
+      <div class="irr-grid">
+        <div class="irr-cell"><div class="inf">decir</div><div class="form">di</div></div>
+        <div class="irr-cell"><div class="inf">hacer</div><div class="form">haz</div></div>
+        <div class="irr-cell"><div class="inf">ir</div><div class="form">ve</div></div>
+        <div class="irr-cell"><div class="inf">poner</div><div class="form">pon</div></div>
+        <div class="irr-cell"><div class="inf">salir</div><div class="form">sal</div></div>
+        <div class="irr-cell"><div class="inf">ser</div><div class="form">sé</div></div>
+        <div class="irr-cell"><div class="inf">tener</div><div class="form">ten</div></div>
+        <div class="irr-cell"><div class="inf">venir</div><div class="form">ven</div></div>
+      </div>
+      <div class="box gd" style="margin-top:8px">
+        <p>Mnemónico: <strong>Di Haz Ve Pon Sal Sé Ten Ven</strong></p>
+        <span class="ex">¡<strong>Haz</strong>me una copia del archivo! (hacer → haz + me → hazme)</span>
+        <span class="ex">¡<strong>Ten</strong> cuidado con tu contraseña!</span>
+      </div>
+    </div>
+
+    <div class="sub">
+      <div class="sub-title nv">Mandatos con pronombres de objeto</div>
+      <div class="box tl">
+        <p>En mandatos <strong>afirmativos</strong>, el pronombre se <strong>añade al final</strong> del verbo y puede necesitar acento.</p>
+        <span class="ex">manda + le → <strong>mánda<em>le</em></strong> un mensaje a María</span>
+        <span class="ex">hace + me → <strong>haz<em>me</em></strong> una copia (hacer es irregular: haz)</span>
+        <span class="ex">lee + lo → <strong>lée<em>lo</em></strong> ahora</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════
+     GRAM 33 — MANDATOS NEGATIVOS
+════════════════════════════════════ -->
+<div class="card" id="gram33b">
+  <div class="card-head cr">
+    <div class="card-num">33−</div>
+    <div class="card-title">
+      <div class="lbl">Gramática · Cap. 12</div>
+      <h2>Mandatos Informales (tú) — Negativos</h2>
+    </div>
+    <span class="card-chap">Cap. 12</span>
+  </div>
+  <div class="card-body">
+
+    <div class="sub">
+      <div class="sub-title cr">Formación</div>
+      <div class="neg-box">
+        <div class="formula">no + subjuntivo (tú)</div>
+        <p>Para el mandato negativo de tú, usa <strong>no</strong> + la forma <strong>tú del subjuntivo</strong>.</p>
+      </div>
+      <div class="box cr">
+        <p><strong>Pasos:</strong> 1) Toma la forma yo del presente. 2) Quita la -o. 3) Añade <strong>-es</strong> (-ar) o <strong>-as</strong> (-er/-ir).</p>
+        <span class="ex">mirar → <strong>mir</strong>o → no mir<strong>es</strong> → ¡No mires videos en YouTube!</span>
+        <span class="ex">imprimir → <strong>imprim</strong>o → no imprim<strong>as</strong> → ¡No imprimas eso!</span>
+        <span class="ex">sacar → <strong>sac</strong>o → no saqu<strong>es</strong> → ¡No saques fotos! (c→qu)</span>
+      </div>
+    </div>
+
+    <div class="sub">
+      <div class="sub-title cr">Afirmativo vs. Negativo</div>
+      <table class="ct">
+        <thead><tr><th class="nv">Mandato afirmativo (tú)</th><th class="cr">Mandato negativo (tú)</th></tr></thead>
+        <tbody>
+          <tr><td>¡<em>Mira</em> la pantalla!</td><td>¡No <em>mires</em> la pantalla!</td></tr>
+          <tr><td>¡<em>Imprime</em> el documento!</td><td>¡No <em>imprimas</em> el documento!</td></tr>
+          <tr><td>¡<em>Saca</em> fotos!</td><td>¡No <em>saques</em> fotos!</td></tr>
+          <tr><td>¡<em>Lee</em> las instrucciones!</td><td>¡No <em>leas</em> en clase!</td></tr>
+          <tr><td>¡<em>Siéntate</em>! (sentarse)</td><td>¡No te <em>sientes</em>!</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════
+     GRAM 34 — SUBJUNTIVO INTRO
+════════════════════════════════════ -->
+<div class="card" id="gram34">
+  <div class="card-head gr">
+    <div class="card-num">34</div>
+    <div class="card-title">
+      <div class="lbl">Gramática · Cap. 12</div>
+      <h2>El Subjuntivo — Introducción</h2>
+    </div>
+    <span class="card-chap">Cap. 12</span>
+  </div>
+  <div class="card-body">
+
+    <div class="sub">
+      <div class="sub-title gr">Formación del presente de subjuntivo</div>
+      <div class="box gr">
+        <p><strong>Regla USUAL:</strong> yo-form → quita la -o → añade terminaciones opuestas</p>
+        <span class="ex">-AR verbs: -e, -es, -e, -emos, -éis, -en</span>
+        <span class="ex">-ER/-IR verbs: -a, -as, -a, -amos, -áis, -an</span>
+      </div>
+      <table class="vt">
+        <thead><tr><th class="gr">Verbo</th><th class="gr">yo-form</th><th class="gr">Subj. yo</th><th class="gr">Subj. tú</th><th class="gr">Subj. ellos</th></tr></thead>
+        <tbody>
+          <tr><td>mandar</td><td>mando</td><td>mande</td><td>mandes</td><td>manden</td></tr>
+          <tr class="alt"><td>usar</td><td>uso</td><td>use</td><td>uses</td><td>usen</td></tr>
+          <tr><td>estudiar</td><td>estudio</td><td>estudie</td><td>estudies</td><td>estudien</td></tr>
+          <tr class="alt"><td>pasar</td><td>paso</td><td>pase</td><td>pases</td><td>pasen</td></tr>
+          <tr><td>tener</td><td>tengo</td><td>tenga</td><td>tengas</td><td>tengan</td></tr>
+          <tr class="alt"><td>decir</td><td>digo</td><td>diga</td><td>digas</td><td>digan</td></tr>
+          <tr><td>volver</td><td>vuelvo</td><td>vuelva</td><td>vuelvas</td><td>vuelvan</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="sub">
+      <div class="sub-title gr">¿Cuándo se usa el subjuntivo?</div>
+      <div class="rule-box">
+        <div class="rb-head gr">
+          <span class="badge">REGLA CLAVE</span>
+          <span class="rb-title">Dos sujetos + verbo de deseo/emoción/influencia + que → SUBJUNTIVO</span>
+        </div>
+        <div class="ri-body">
+          <p><strong>Estructura:</strong> [Sujeto 1 + verbo principal] + <strong>que</strong> + [Sujeto 2 + <em>subjuntivo</em>]</p>
+          <span class="ex">Mi madre insiste en que yo no <strong>mande</strong> muchos mensajes. <span class="why">→ madre ≠ yo → subjuntivo</span></span>
+          <span class="ex">Nuestro padre permite que mi hermana <strong>use</strong> la computadora. <span class="why">→ padre ≠ hermana → subjuntivo</span></span>
+          <span class="ex">Los profes recomiendan que los estudiantes <strong>estudien</strong>. <span class="why">→ profes ≠ estudiantes → subjuntivo</span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub">
+      <div class="sub-title gr">Expresiones gatillo — Gramática 34</div>
+      <div class="tpills">
+        <div class="tpill"><span class="term">insistir en que</span><span class="ex">…que yo no mande…</span></div>
+        <div class="tpill"><span class="term">preferir que</span><span class="ex">…que los hijos no pasen…</span></div>
+        <div class="tpill"><span class="term">permitir que</span><span class="ex">…que mi hermana use…</span></div>
+        <div class="tpill"><span class="term">recomendar que</span><span class="ex">…que estudien mucho…</span></div>
+        <div class="tpill"><span class="term">sugerir que</span><span class="ex">…que tengan cuidado…</span></div>
+        <div class="tpill"><span class="term">es necesario que</span><span class="ex">…que tú digas la verdad…</span></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════
+     GRAM 35 — SUBJUNTIVO INFLUENCIA
+════════════════════════════════════ -->
+<div class="card" id="gram35">
+  <div class="card-head pl">
+    <div class="card-num">35</div>
+    <div class="card-title">
+      <div class="lbl">Gramática · Cap. 13</div>
+      <h2>El Subjuntivo — Verbos de Influencia</h2>
+    </div>
+    <span class="card-chap">Cap. 13</span>
+  </div>
+  <div class="card-body">
+
+    <div class="sub">
+      <div class="sub-title pl">Estructura: DOS verbos en una oración</div>
+      <div class="box pl">
+        <p>En el examen te dan DOS verbos entre paréntesis. El <strong>primero</strong> va en indicativo, el <strong>segundo</strong> en subjuntivo.</p>
+        <span class="ex">Mi hermano y yo <strong>esperamos</strong> (esperar) que el abuelo <strong>aprenda</strong> (aprender) a descargar programas.</span>
+        <span class="ex">Mi hermano <strong>insiste</strong> (insistir) en que mis padres le <strong>compren</strong> (comprar) un iPhone.</span>
+        <span class="ex">El gobierno <strong>recomienda</strong> (recomendar) que los padres les <strong>lean</strong> (leer) más a sus hijos.</span>
+        <span class="ex">Mi madre no <strong>permite</strong> (permitir) que yo <strong>entre</strong> (entrar) en Facebook.</span>
+      </div>
+    </div>
+
+    <div class="sub">
+      <div class="sub-title pl">Verbos de influencia más comunes</div>
+      <table class="vt">
+        <thead><tr><th class="pl">Verbo</th><th class="pl">Ejemplo indicativo</th><th class="pl">Notas</th></tr></thead>
+        <tbody>
+          <tr><td>esperar (que)</td><td>esperamos</td><td><span class="note">nosotros regular</span></td></tr>
+          <tr class="alt"><td>insistir en (que)</td><td>insiste</td><td><span class="note">él/ella regular</span></td></tr>
+          <tr><td>recomendar (que)</td><td>recomienda</td><td><span class="note">⚠️ e→ie stem change</span></td></tr>
+          <tr class="alt"><td>permitir (que)</td><td>permite</td><td><span class="note">él/ella regular</span></td></tr>
+          <tr><td>querer (que)</td><td>quiero/quiere</td><td><span class="note">⚠️ e→ie stem change</span></td></tr>
+          <tr class="alt"><td>desear (que)</td><td>desea</td><td><span class="note">regular</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════
+     GRAM 35+ — INFINITIVO vs SUBJUNTIVO
+════════════════════════════════════ -->
+<div class="card" id="gram35b">
+  <div class="card-head gd">
+    <div class="card-num">⚠️</div>
+    <div class="card-title">
+      <div class="lbl">Clave del examen · Q1</div>
+      <h2>Infinitivo vs. Subjuntivo — distinción crítica</h2>
+    </div>
+    <span class="card-chap">Caps. 12–13</span>
+  </div>
+  <div class="card-body">
+
+    <div class="sub">
+      <div class="sub-title gd">La regla del cambio de sujeto</div>
+      <table class="ct">
+        <thead><tr><th class="nv">INFINITIVO (mismo sujeto)</th><th class="pl">SUBJUNTIVO (sujeto diferente)</th></tr></thead>
+        <tbody>
+          <tr><td class="lbl">No hay "que" ni cambio de sujeto</td><td class="lbl">Hay "que" + sujeto diferente</td></tr>
+          <tr><td>Prefiero <strong>imprimir</strong> este documento. <br><span style="font-size:13px;color:#888">→ yo prefiero, yo imprimo</span></td>
+              <td>Prefiero que tú <strong>imprimas</strong> el doc. <br><span style="font-size:13px;color:#888">→ yo prefiero, tú imprimes</span></td></tr>
+          <tr><td>Quiero <strong>salir</strong> temprano.</td><td>Quiero que ella <strong>salga</strong> temprano.</td></tr>
+          <tr><td>Necesito <strong>estudiar</strong> más.</td><td>Es necesario que tú <strong>estudies</strong>.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="sub">
+      <div class="sub-title gd">⚠️ Error frecuente — Q1 del examen oficial</div>
+      <div class="box gd">
+        <p><strong>Prefiero _______ este documento ahora.</strong></p>
+        <p>❌ <em>imprima / imprimas</em> — subjuntivo requiere cambio de sujeto (<em>Prefiero que tú imprimas</em>)</p>
+        <p>✅ <strong>imprimir</strong> — mismo sujeto "yo" → infinitivo</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════
+     VOCABULARIO — LA CIUDAD
+════════════════════════════════════ -->
+<div class="card" id="vocab-ciudad">
+  <div class="card-head tl">
+    <div class="card-num">V</div>
+    <div class="card-title">
+      <div class="lbl">Vocabulario · Cap. 12</div>
+      <h2>La ciudad</h2>
+    </div>
+    <span class="card-chap">Cap. 12</span>
+  </div>
+  <div class="card-body">
+    <table class="vt">
+      <thead><tr><th class="tl">Palabra</th><th class="tl">Definición</th><th class="tl">Ejemplo</th></tr></thead>
+      <tbody>
+        <tr><td>la dirección</td><td>el número y la calle donde vives</td><td>¿Cuál es tu dirección?</td></tr>
+        <tr class="alt"><td>los inquilinos</td><td>las personas que alquilan un apartamento</td><td>Los inquilinos pagan la renta.</td></tr>
+        <tr><td>el ascensor</td><td>aparato para subir y bajar en edificios altos</td><td>Toma el ascensor al piso 10.</td></tr>
+        <tr class="alt"><td>los vecinos</td><td>personas que viven en el mismo barrio</td><td>Mis vecinos son muy amables.</td></tr>
+        <tr><td>la parada</td><td>lugar donde se espera el metro o autobús</td><td>La parada está en la esquina.</td></tr>
+        <tr class="alt"><td>el propietario</td><td>dueño del apartamento o edificio</td><td>El propietario sube la renta.</td></tr>
+        <tr><td>el barrio</td><td>zona o vecindad de una ciudad</td><td>Vivo en un barrio tranquilo.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════
+     VOCABULARIO — LA TECNOLOGÍA
+════════════════════════════════════ -->
+<div class="card" id="vocab-tec">
+  <div class="card-head nv">
+    <div class="card-num">V</div>
+    <div class="card-title">
+      <div class="lbl">Vocabulario · Cap. 12</div>
+      <h2>La tecnología</h2>
+    </div>
+    <span class="card-chap">Cap. 12</span>
+  </div>
+  <div class="card-body">
+    <table class="vt">
+      <thead><tr><th class="nv">Palabra</th><th class="nv">Significado</th><th class="nv">Ejemplo del examen</th></tr></thead>
+      <tbody>
+        <tr><td>las carpetas</td><td>folders to organize files</td><td>Pon los documentos en <strong>carpetas</strong>.</td></tr>
+        <tr class="alt"><td>publicar</td><td>to post/publish (online)</td><td>Mi amigo <strong>publica</strong> fotos en Instagram.</td></tr>
+        <tr><td>funcionar</td><td>to work/function (device)</td><td>Mi celular no <strong>funciona</strong>.</td></tr>
+        <tr class="alt"><td>la pantalla</td><td>screen</td><td>Su <strong>pantalla</strong> es muy pequeña.</td></tr>
+        <tr><td>el almacenamiento</td><td>storage space</td><td>Sin <strong>almacenamiento</strong>, no puedes guardar más.</td></tr>
+        <tr class="alt"><td>fallar</td><td>to fail/crash (hardware)</td><td>Mi disco duro <strong>falló</strong>.</td></tr>
+        <tr><td>la contraseña</td><td>password</td><td>Ten cuidado con tu <strong>contraseña</strong>.</td></tr>
+        <tr class="alt"><td>descargar</td><td>to download</td><td>¿Puedes <strong>descargar</strong> ese programa?</td></tr>
+        <tr><td>la computadora portátil</td><td>laptop computer</td><td>Mi <strong>computadora portátil</strong> es ligera.</td></tr>
+        <tr class="alt"><td>la impresora</td><td>printer</td><td>La <strong>impresora</strong> está en mi oficina.</td></tr>
+        <tr><td>el ratón</td><td>mouse (computer)</td><td>Usa el <strong>ratón</strong> para hacer clic.</td></tr>
+        <tr class="alt"><td>los auriculares</td><td>headphones</td><td>Escucha con los <strong>auriculares</strong>.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════
+     VOCABULARIO — LOS ARTISTAS
+════════════════════════════════════ -->
+<div class="card" id="vocab-art">
+  <div class="card-head pl">
+    <div class="card-num">V</div>
+    <div class="card-title">
+      <div class="lbl">Vocabulario · Cap. 13</div>
+      <h2>Los artistas</h2>
+    </div>
+    <span class="card-chap">Cap. 13</span>
+  </div>
+  <div class="card-body">
+    <table class="vt">
+      <thead><tr><th class="pl">Artista</th><th class="pl">Qué hace/crea</th><th class="pl">Obra / artículo indefinido</th></tr></thead>
+      <tbody>
+        <tr><td>el compositor</td><td>componer</td><td><strong>una composición musical</strong></td></tr>
+        <tr class="alt"><td>el director</td><td>dirigir</td><td>dirige a <strong>unos actores</strong></td></tr>
+        <tr><td>el poeta</td><td>escribir</td><td><strong>un poema</strong></td></tr>
+        <tr class="alt"><td>el arquitecto</td><td>diseñar</td><td><strong>un edificio</strong></td></tr>
+        <tr><td>el escultor</td><td>hacer</td><td><strong>una escultura</strong></td></tr>
+        <tr class="alt"><td>la actriz</td><td>hacer un papel</td><td>en <strong>una película</strong></td></tr>
+        <tr><td>el bailarín</td><td>bailar</td><td>en <strong>un ballet</strong></td></tr>
+        <tr class="alt"><td>el músico</td><td>tocar</td><td><strong>un instrumento musical</strong></td></tr>
+        <tr><td>el escritor</td><td>escribir</td><td><strong>una novela</strong></td></tr>
+        <tr class="alt"><td>los espectadores</td><td>asistir</td><td>a un espectáculo de música</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════
+     TIPS SECTION
+════════════════════════════════════ -->
+<div class="card" id="tips">
+  <div class="card-head gd">
+    <div class="card-num">★</div>
+    <div class="card-title">
+      <div class="lbl">Para el examen</div>
+      <h2>Tips y estrategias</h2>
+    </div>
+    <span class="card-chap">Resumen</span>
+  </div>
+  <div class="card-body">
+    <div class="tips-grid">
+      <div class="tip">
+        <span class="tip-icon">⚡</span>
+        <div class="tip-head">Mandatos afirmativos · Cap. 12</div>
+        <p>= forma él/ella del presente. Los 8 irregulares: <strong>Di Haz Ve Pon Sal Sé Ten Ven</strong>. Con pronombres, se añaden al final con acento: <em>mándale, hazme</em>.</p>
+      </div>
+      <div class="tip">
+        <span class="tip-icon">🚫</span>
+        <div class="tip-head">Mandatos negativos · Cap. 12</div>
+        <p><strong>no + subjuntivo (tú)</strong>. Pasos: yo-form → quita -o → añade -es (-ar) o -as (-er/-ir). <em>sacar → sac-o → no saques</em>.</p>
+      </div>
+      <div class="tip">
+        <span class="tip-icon">🔀</span>
+        <div class="tip-head">Infinitivo vs. Subjuntivo · Q1 ⚠️</div>
+        <p>¿Mismo sujeto? → <strong>infinitivo</strong>. ¿Sujeto diferente + que? → <strong>subjuntivo</strong>. <em>Prefiero imprimir</em> ✓ vs. <em>Prefiero que tú imprimas</em> ✓.</p>
+      </div>
+      <div class="tip">
+        <span class="tip-icon">✍️</span>
+        <div class="tip-head">Dos verbos (Gram 35)</div>
+        <p>Primer verbo → <strong>indicativo</strong>. Segundo verbo (después de que) → <strong>subjuntivo</strong>. Ej: <em>esperamos / aprenda, recomienda / lean</em>.</p>
+      </div>
+      <div class="tip">
+        <span class="tip-icon">🎨</span>
+        <div class="tip-head">Artistas (Cap. 13)</div>
+        <p>Aprende los pares artista-obra: bailarín → ballet, compositor → composición musical, arquitecto → edificio, escultor → escultura.</p>
+      </div>
+      <div class="tip">
+        <span class="tip-icon">💻</span>
+        <div class="tip-head">Tecnología (Cap. 12)</div>
+        <p>Verbos clave: <strong>fallar</strong> (crash), <strong>publicar</strong> (post online), <strong>funcionar</strong> (work/operate), <strong>descargar</strong> (download), <strong>almacenar</strong> (store).</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /content -->
+</div><!-- /main -->
+
+<a href="#top" class="back-top" aria-label="Volver arriba">↑</a>
+
+<script>
+// Nav active link
+const links=document.querySelectorAll('.nav-list a[href^="#"]');
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const id=e.target.id;
+      links.forEach(l=>{l.classList.remove('active');if(l.getAttribute('href')==='#'+id)l.classList.add('active')});
+    }
+  });
+},{rootMargin:'-20% 0px -70% 0px'});
+document.querySelectorAll('[id]').forEach(el=>obs.observe(el));
+
+function setSize(size){
+  document.body.classList.remove('size-large','size-xlarge');
+  if(size==='large') document.body.classList.add('size-large');
+  if(size==='xlarge') document.body.classList.add('size-xlarge');
+  document.querySelectorAll('.a11y-btn').forEach(b=>b.classList.remove('active'));
+  const map={normal:'btnNormal',large:'btnLarge',xlarge:'btnXLarge'};
+  document.getElementById(map[size]).classList.add('active');
+  try{localStorage.setItem('a11y-size',size)}catch(e){}
+}
+function toggleContrast(){
+  const on=document.body.classList.toggle('high-contrast');
+  document.getElementById('btnContrast').classList.toggle('active',on);
+  try{localStorage.setItem('a11y-contrast',on?'1':'')}catch(e){}
+}
+try{
+  const s=localStorage.getItem('a11y-size');
+  const c=localStorage.getItem('a11y-contrast');
+  if(s && s!=='normal') setSize(s);
+  if(c) toggleContrast();
+}catch(e){}
+</script>
+</body>
+</html>
