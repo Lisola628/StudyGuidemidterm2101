@@ -162,10 +162,27 @@ body{font-family:'Source Serif 4',Georgia,serif;font-size:17px;line-height:1.85;
 .a11y-divider{width:1px;height:20px;background:rgba(255,255,255,.15);margin:0 4px}
 
 body.size-large{font-size:19px}
-body.size-large .vt,.size-large .box,.size-large .ri-body,.size-large .ct{font-size:18px}
+body.size-large .vt,body.size-large .box,body.size-large .ri-body,body.size-large .ct,
+body.size-large .tip,body.size-large .tpill,body.size-large .neg-box,
+body.size-large .conj-cell,body.size-large .irr-cell,body.size-large .rb-head,
+body.size-large .ri-body,body.size-large p,body.size-large li{font-size:18px}
+body.size-large .card-title h2{font-size:24px}
+body.size-large h3.sub-title{font-size:18px}
+body.size-large .hero-title{font-size:44px}
+body.size-large .nav-list a{font-size:16px}
+body.size-large .a11y-btn{font-size:15px}
+
 body.size-xlarge{font-size:22px}
-body.size-xlarge .vt,.size-xlarge .box,.size-xlarge .ri-body,.size-xlarge .ct{font-size:21px}
-body.size-xlarge .card-title h2{font-size:26px}
+body.size-xlarge .vt,body.size-xlarge .box,body.size-xlarge .ri-body,body.size-xlarge .ct,
+body.size-xlarge .tip,body.size-xlarge .tpill,body.size-xlarge .neg-box,
+body.size-xlarge .conj-cell,body.size-xlarge .irr-cell,body.size-xlarge .rb-head,
+body.size-xlarge .ri-body,body.size-xlarge p,body.size-xlarge li{font-size:21px}
+body.size-xlarge .card-title h2{font-size:28px}
+body.size-xlarge h3.sub-title{font-size:21px}
+body.size-xlarge .hero-title{font-size:50px}
+body.size-xlarge .nav-list a{font-size:18px}
+body.size-xlarge .a11y-btn{font-size:17px}
+body.size-xlarge .irr-cell .form{font-size:22px}
 
 body.high-contrast{background:#000;color:#fff}
 body.high-contrast .card{background:#111;border-color:#555}
@@ -229,6 +246,32 @@ body.high-contrast caption{color:#ccc}
 .nav-list a{text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(255,255,255,.25)}
 .nav-list a:hover,.nav-list a.active{text-decoration-color:rgba(255,255,255,.7)}
 
+
+/* ── ADDITIONAL HIGH CONTRAST FIXES ── */
+body.high-contrast .main{background:#000}
+body.high-contrast .hero{background:#000;border-bottom:2px solid #fff}
+body.high-contrast .hero-title,body.high-contrast .hero-sub,body.high-contrast .hero-kicker{color:#fff}
+body.high-contrast .content p,body.high-contrast .content li{color:#e8e8e8}
+body.high-contrast .sub-title{color:#fff!important;border-color:#888!important}
+body.high-contrast .rb-head.gr,body.high-contrast .rb-head.pl,body.high-contrast .rb-head.nv,body.high-contrast .rb-head.gd{background:#222;border:1px solid #888}
+body.high-contrast .ri-body .ex{color:#7fd8e8}
+body.high-contrast .ri-body .why{color:#f5c842}
+body.high-contrast .neg-box{background:#1a0000;border:1px solid #c44}
+body.high-contrast .neg-box .formula{background:#8b0000}
+body.high-contrast .tpill{background:#1a0a1a;border-color:#a060a0}
+body.high-contrast .tpill .term{color:#c090d0}
+body.high-contrast .tpill .ex{color:#aaa}
+body.high-contrast .card-head.nv,body.high-contrast .card-head.gr,
+body.high-contrast .card-head.tl,body.high-contrast .card-head.pl,
+body.high-contrast .card-head.gd,body.high-contrast .card-head.cr{border-bottom:2px solid #888}
+body.high-contrast .a11y-bar{background:rgba(0,0,0,.98);border-bottom:1px solid #888}
+body.high-contrast .a11y-btn{border-color:#888;color:#e0e0e0}
+body.high-contrast .a11y-btn.active{background:rgba(245,200,66,.25);border-color:#F5C842;color:#F5C842}
+body.high-contrast .irr-cell{background:#001828;border-color:#336}
+body.high-contrast .irr-cell .inf{color:#aaa}
+body.high-contrast .vt tr:hover td{background:#002030}
+body.high-contrast .back-top{background:#283593;border:2px solid #fff}
+
 </style>
 </head>
 <body>
@@ -246,6 +289,7 @@ body.high-contrast caption{color:#ccc}
     <li><a href="#gram33a"><span class="num">▸</span>Affirmative commands</a></li>
     <li><a href="#gram33b"><span class="num">▸</span>Negative commands</a></li>
     <li><a href="#gram33c"><span class="num">▸</span>Irregular forms</a></li>
+    <li><a href="#gram33d"><span class="num">▸</span>Reflexive commands</a></li>
   </ul>
 
   <div class="nav-group">Grammar 34 &amp; 35</div>
@@ -283,13 +327,13 @@ body.high-contrast caption{color:#ccc}
 <header class="hero" id="top">
   <div class="hero-kicker">SPAN 2101 · Examen Parcial · Spring 2026</div>
   <h1 class="hero-title">Guía de Estudio</h1>
-  <p class="hero-sub">Capítulos 12 &amp; 13 — Mandatos, Subjuntivo e Vocabulary</p>
+  <p class="hero-sub">Chapters 12 &amp; 13 — Commands, Subjunctive &amp; Vocabulary</p>
   <div class="chips" aria-hidden="true">
-    <span class="chip gold">Gramáticas 33 · 34 · 35</span>
+    <span class="chip gold">Grammars 33 · 34 · 35</span>
     <span class="chip">Informal Commands (tú)</span>
     <span class="chip">Subjunctive: Introduction</span>
     <span class="chip">Subjunctive: Influence</span>
-    <span class="chip">Vocabulary Caps. 12 &amp; 13</span>
+    <span class="chip">Vocabulary Ch. 12 &amp; 13</span>
   </div>
 </header>
 
@@ -312,7 +356,7 @@ body.high-contrast caption{color:#ccc}
   <div class="card-body">
 
     <div class="sub">
-      <h3 class="sub-title nv">How to form regular affirmative commands</h3>
+      <h3 class="sub-title nv">How to form the present subjunctive</h3>
       <div class="box nv">
         <p><strong>Rule:</strong> The affirmative informal command (tú) = the <strong>él/ella</strong> form of the present indicative.</p>
         <span class="ex">hablar → él <em>habla</em> → ¡<strong>Habla</strong> más despacio!</span>
@@ -334,7 +378,9 @@ body.high-contrast caption{color:#ccc}
         <div class="irr-cell" role="listitem"><div class="inf">venir</div><div class="form">ven</div></div>
       </div>
       <div class="box gd" style="margin-top:8px">
-        <p>Mnemonic: <strong>Di Haz Ve Pon Sal Sé Ten Ven</strong></p>
+        <p><strong>Mnemonic — VINDISELS:</strong> <span style="font-family:'JetBrains Mono',monospace;font-size:15px;letter-spacing:.08em"><strong>V</strong>en · <strong>I</strong>r (ve) · <strong>N</strong>— · <strong>D</strong>i · <strong>I</strong>— · <strong>S</strong>é · <strong>E</strong>— · <strong>L</strong>— · <strong>S</strong>al</span></p>
+        <p style="margin-top:6px">Or by initial letter of each verb: <strong>V</strong>enir → ven &nbsp;|&nbsp; <strong>I</strong>r → ve &nbsp;|&nbsp; <strong>D</strong>ecir → di &nbsp;|&nbsp; <strong>S</strong>er → sé &nbsp;|&nbsp; <strong>S</strong>alir → sal &nbsp;|&nbsp; <strong>H</strong>acer → haz &nbsp;|&nbsp; <strong>T</strong>ener → ten &nbsp;|&nbsp; <strong>P</strong>oner → pon</p>
+        <p style="margin-top:6px;font-size:14px;color:#8B6000">Some teachers use <strong>"Di Haz Ve Pon Sal Sé Ten Ven"</strong> (the command forms in order). Use whichever clicks for you!</p>
         <span class="ex">¡<strong>Haz</strong>me una copia del archivo! (hacer → haz + me → hazme)</span>
         <span class="ex">¡<strong>Ten</strong> cuidado con tu contraseña!</span>
       </div>
@@ -350,6 +396,37 @@ body.high-contrast caption{color:#ccc}
       </div>
     </div>
 
+
+    <div class="sub" id="gram33d">
+      <h3 class="sub-title nv">Reflexive verbs with commands</h3>
+      <div class="box nv">
+        <p>When a command uses a <strong>reflexive verb</strong>, the reflexive pronoun (<em>te, se, nos</em>) attaches to affirmative commands and goes <strong>before</strong> the verb in negative commands.</p>
+        <span class="ex"><strong>Affirmative:</strong> ¡<strong>Siéntate</strong>! &nbsp;(sentar + te → siéntate — accent added)</span>
+        <span class="ex"><strong>Negative:</strong> ¡No te <strong>sientes</strong>! &nbsp;(no + te + subjunctive form)</span>
+      </div>
+      <table class="vt" style="margin-top:12px">
+        <caption>Common reflexive verbs in commands</caption>
+        <thead><tr>
+          <th scope="col" class="nv">Infinitive</th>
+          <th scope="col" class="nv">Affirmative (tú)</th>
+          <th scope="col" class="nv">Negative (tú)</th>
+          <th scope="col" class="nv">Meaning</th>
+        </tr></thead>
+        <tbody>
+          <tr><td scope="row">sentarse</td><td>¡<strong>Siéntate</strong>!</td><td>¡No te <strong>sientes</strong>!</td><td>to sit down</td></tr>
+          <tr class="alt"><td scope="row">levantarse</td><td>¡<strong>Levántate</strong>!</td><td>¡No te <strong>levantes</strong>!</td><td>to get up</td></tr>
+          <tr><td scope="row">llamarse</td><td>¡<strong>Llámame</strong>! (call me)</td><td>¡No te <strong>llames</strong> así!</td><td>to be called / to call</td></tr>
+          <tr class="alt"><td scope="row">ponerse</td><td>¡<strong>Ponte</strong> los auriculares!</td><td>¡No te <strong>pongas</strong> nervioso!</td><td>to put on / to become</td></tr>
+          <tr><td scope="row">irse</td><td>¡<strong>Vete</strong> ahora!</td><td>¡No te <strong>vayas</strong>!</td><td>to leave / go away</td></tr>
+        </tbody>
+      </table>
+      <div class="box gd" style="margin-top:12px">
+        <p><strong>Rule for accent marks:</strong> When you attach <em>te/se/nos</em> to a command, count the syllables — if the stress falls on the third-to-last or earlier, add a written accent.</p>
+        <span class="ex">sienta + te = <strong>siéntate</strong> &nbsp;(stress: SIÉN-ta-te → accent on ie)</span>
+        <span class="ex">levanta + te = <strong>levántate</strong> &nbsp;(stress: le-VÁN-ta-te → accent on an)</span>
+        <span class="ex">pon + te = <strong>ponte</strong> &nbsp;(only 2 syllables — no accent needed)</span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -413,7 +490,7 @@ body.high-contrast caption{color:#ccc}
   <div class="card-body">
 
     <div class="sub">
-      <h3 class="sub-title gr">How to form negative commands del presente de subjuntivo</h3>
+      <h3 class="sub-title gr">How to form the present subjunctive</h3>
       <div class="box gr">
         <p><strong>General rule:</strong> Take the yo-form → drop the -o → add the "opposite" endings</p>
         <span class="ex">-AR verbs use -e endings: -e, -es, -e, -emos, -éis, -en</span>
@@ -675,15 +752,15 @@ function setSize(size){
   const map={normal:'btnNormal',large:'btnLarge',xlarge:'btnXLarge'};
   document.getElementById(map[size]).classList.add('active');
   try{localStorage.setItem('a11y-size',size)}catch(e){}
-  const ann=document.getElementById('a11y-announce');if(ann){const labels={normal:'Normal text size',large:'Large text activated',xlarge:'Extra large text activated'};ann.textContent='';setTimeout(()=>{ann.textContent=labels[size]||''},50);}
-  const ann=document.getElementById('a11y-announce');if(ann){const labels={normal:'Normal text size',large:'Large text activated',xlarge:'Extra large text activated'};ann.textContent=labels[size]||'';}
+  const annS=document.getElementById('a11y-announce');
+  if(annS){const labels={normal:'Normal text size',large:'Large text activated',xlarge:'Extra large text activated'};annS.textContent='';setTimeout(()=>{annS.textContent=labels[size]||''},50);}
 }
 function toggleContrast(){
   const on=document.body.classList.toggle('high-contrast');
   document.getElementById('btnContrast').classList.toggle('active',on);
   try{localStorage.setItem('a11y-contrast',on?'1':'')}catch(e){}
-  const ann2=document.getElementById('a11y-announce');if(ann2){ann2.textContent='';setTimeout(()=>{ann2.textContent=on?'High contrast mode on':'High contrast mode off'},50);}
-  const ann2=document.getElementById('a11y-announce');if(ann2)ann2.textContent=on?'High contrast mode on':'High contrast mode off';
+  const annC=document.getElementById('a11y-announce');
+  if(annC){annC.textContent='';setTimeout(()=>{annC.textContent=on?'High contrast mode on':'High contrast mode off'},50);}
 }
 try{
   const s=localStorage.getItem('a11y-size');
