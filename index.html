@@ -8,7 +8,7 @@
 <style>
 :root{
   --sw:260px;
-  --navy:#1A3A5C; --navy-dk:#0e2438; --navy-lt:#EFF8FF;
+  --navy:#283593; --navy-dk:#1a237e; --navy-lt:#E8EAF6;
   --green:#1A5C3A; --green-lt:#EBF8F0;
   --tl:#0D5C6B; --tl-lt:#E0F4F7;
   --pl:#6B2D8B; --pl-lt:#F5EDF5;
@@ -155,7 +155,7 @@ body{font-family:'Source Serif 4',Georgia,serif;font-size:17px;line-height:1.85;
 .back-top:hover{background:var(--tl)}
 
 /* ── A11Y TOOLBAR ── */
-.a11y-bar{position:fixed;top:0;left:var(--sw);right:0;background:rgba(14,36,56,.96);backdrop-filter:blur(6px);padding:7px 52px;display:flex;align-items:center;gap:8px;z-index:150;border-bottom:1px solid rgba(255,255,255,.1)}
+.a11y-bar{position:fixed;top:0;left:var(--sw);right:0;background:rgba(26,35,126,.96);backdrop-filter:blur(6px);padding:7px 52px;display:flex;align-items:center;gap:8px;z-index:150;border-bottom:1px solid rgba(255,255,255,.1)}
 .a11y-label{font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(255,255,255,.6);letter-spacing:.1em;text-transform:uppercase;margin-right:4px}
 .a11y-btn{font-family:'Playfair Display',serif;font-weight:700;background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.2);border-radius:6px;padding:4px 12px;cursor:pointer;font-size:13px;transition:background .15s;min-height:32px}
 .a11y-btn:hover,.a11y-btn.active{background:rgba(245,200,66,.25);border-color:#F5C842;color:#F5C842}
@@ -201,10 +201,39 @@ body.high-contrast .neg-box{background:#1a0000}
   .irr-grid{grid-template-columns:repeat(2,1fr)}
   .tips-grid{grid-template-columns:1fr}
 }
+
+/* ── SCREEN READER & SKIP LINK ── */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.skip-link{position:absolute;top:-100px;left:0;background:var(--navy);color:#fff;padding:12px 24px;font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:600;text-decoration:none;border-radius:0 0 8px 0;z-index:9999;transition:top .15s}
+.skip-link:focus{top:0}
+
+/* ── TABLE CAPTIONS (visible for low vision, announced for SR) ── */
+caption{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;text-align:left;padding:8px 15px 4px;color:var(--mid);letter-spacing:.05em}
+caption.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+
+/* ── CARD SECTION LANDMARK ── */
+section.card{display:block}
+
+/* ── FOCUS ENHANCEMENTS for low vision ── */
+a:focus-visible,button:focus-visible{outline:3px solid #F5C842;outline-offset:4px;border-radius:3px}
+.nav-list a:focus-visible{outline-color:#fff;background:rgba(255,255,255,.15)}
+.vt tr:focus-within td{background:#E8F4F8}
+
+/* ── HIGH CONTRAST TABLE BORDERS (important for low vision) ── */
+body.high-contrast .vt{border:2px solid #fff}
+body.high-contrast .vt th{border-bottom:3px solid #fff!important}
+body.high-contrast .vt td{border-bottom:1px solid #666}
+body.high-contrast caption{color:#ccc}
+
+/* ── UNDERLINE ALL LINKS for low vision ── */
+.nav-list a{text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(255,255,255,.25)}
+.nav-list a:hover,.nav-list a.active{text-decoration-color:rgba(255,255,255,.7)}
+
 </style>
 </head>
 <body>
 
+<a href="#main-content" class="skip-link">Saltar al contenido principal</a>
 <nav class="sidebar" aria-label="Navegación">
   <div class="sb-brand">
     <div class="kicker">SPAN 2101 · Spring 2026</div>
@@ -252,12 +281,12 @@ body.high-contrast .neg-box{background:#1a0000}
   <button class="a11y-btn" id="btnContrast" onclick="toggleContrast()" aria-label="Alto contraste">◑ Contraste</button>
 </div>
 
-<div class="main">
+<main class="main" id="main-content" tabindex="-1">
 <header class="hero" id="top">
   <div class="hero-kicker">SPAN 2101 · Examen Parcial · Spring 2026</div>
   <h1 class="hero-title">Guía de Estudio</h1>
   <p class="hero-sub">Capítulos 12 &amp; 13 — Mandatos, Subjuntivo e Vocabulario</p>
-  <div class="chips">
+  <div class="chips" aria-hidden="true">
     <span class="chip gold">Gramáticas 33 · 34 · 35</span>
     <span class="chip">Mandatos informales (tú)</span>
     <span class="chip">Subjuntivo: Introducción</span>
@@ -275,19 +304,19 @@ body.high-contrast .neg-box{background:#1a0000}
 <!-- ═══════════════════════════════════
      GRAM 33 — MANDATOS AFIRMATIVOS
 ════════════════════════════════════ -->
-<div class="card" id="gram33a">
+<section class="card" id="gram33a" aria-labelledby="gram33a-heading">
   <div class="card-head nv">
-    <div class="card-num">33</div>
+    <div class="card-num" aria-hidden="true">33</div>
     <div class="card-title">
       <div class="lbl">Gramática · Cap. 12</div>
-      <h2>Mandatos Informales (tú) — Afirmativos</h2>
+      <h2 id="gram33a-heading">Mandatos Informales (tú) — Afirmativos</h2>
     </div>
     <span class="card-chap">Cap. 12</span>
   </div>
   <div class="card-body">
 
     <div class="sub">
-      <div class="sub-title nv">Formación: mandatos afirmativos regulares</div>
+      <h3 class="sub-title nv">Formación: mandatos afirmativos regulares</h3>
       <div class="box nv">
         <p><strong>Regla:</strong> El mandato afirmativo (tú) = la forma <strong>él/ella</strong> del presente de indicativo.</p>
         <span class="ex">hablar → él <em>habla</em> → ¡<strong>Habla</strong> más despacio!</span>
@@ -298,15 +327,15 @@ body.high-contrast .neg-box{background:#1a0000}
 
     <div class="sub">
       <div class="sub-title nv" id="gram33c">8 irregulares — memorízalos</div>
-      <div class="irr-grid">
-        <div class="irr-cell"><div class="inf">decir</div><div class="form">di</div></div>
-        <div class="irr-cell"><div class="inf">hacer</div><div class="form">haz</div></div>
-        <div class="irr-cell"><div class="inf">ir</div><div class="form">ve</div></div>
-        <div class="irr-cell"><div class="inf">poner</div><div class="form">pon</div></div>
-        <div class="irr-cell"><div class="inf">salir</div><div class="form">sal</div></div>
-        <div class="irr-cell"><div class="inf">ser</div><div class="form">sé</div></div>
-        <div class="irr-cell"><div class="inf">tener</div><div class="form">ten</div></div>
-        <div class="irr-cell"><div class="inf">venir</div><div class="form">ven</div></div>
+      <div class="irr-grid" role="list" aria-label="Ocho mandatos irregulares de tú">
+        <div class="irr-cell" role="listitem"><div class="inf">decir</div><div class="form">di</div></div>
+        <div class="irr-cell" role="listitem"><div class="inf">hacer</div><div class="form">haz</div></div>
+        <div class="irr-cell" role="listitem"><div class="inf">ir</div><div class="form">ve</div></div>
+        <div class="irr-cell" role="listitem"><div class="inf">poner</div><div class="form">pon</div></div>
+        <div class="irr-cell" role="listitem"><div class="inf">salir</div><div class="form">sal</div></div>
+        <div class="irr-cell" role="listitem"><div class="inf">ser</div><div class="form">sé</div></div>
+        <div class="irr-cell" role="listitem"><div class="inf">tener</div><div class="form">ten</div></div>
+        <div class="irr-cell" role="listitem"><div class="inf">venir</div><div class="form">ven</div></div>
       </div>
       <div class="box gd" style="margin-top:8px">
         <p>Mnemónico: <strong>Di Haz Ve Pon Sal Sé Ten Ven</strong></p>
@@ -316,7 +345,7 @@ body.high-contrast .neg-box{background:#1a0000}
     </div>
 
     <div class="sub">
-      <div class="sub-title nv">Mandatos con pronombres de objeto</div>
+      <h3 class="sub-title nv">Mandatos con pronombres de objeto</h3>
       <div class="box tl">
         <p>En mandatos <strong>afirmativos</strong>, el pronombre se <strong>añade al final</strong> del verbo y puede necesitar acento.</p>
         <span class="ex">manda + le → <strong>mánda<em>le</em></strong> un mensaje a María</span>
@@ -326,24 +355,24 @@ body.high-contrast .neg-box{background:#1a0000}
     </div>
 
   </div>
-</div>
+</section>
 
 <!-- ═══════════════════════════════════
      GRAM 33 — MANDATOS NEGATIVOS
 ════════════════════════════════════ -->
-<div class="card" id="gram33b">
+<section class="card" id="gram33b" aria-labelledby="gram33b-heading">
   <div class="card-head cr">
-    <div class="card-num">33−</div>
+    <div class="card-num" aria-hidden="true">33−</div>
     <div class="card-title">
       <div class="lbl">Gramática · Cap. 12</div>
-      <h2>Mandatos Informales (tú) — Negativos</h2>
+      <h2 id="gram33b-heading">Mandatos Informales (tú) — Negativos</h2>
     </div>
     <span class="card-chap">Cap. 12</span>
   </div>
   <div class="card-body">
 
     <div class="sub">
-      <div class="sub-title cr">Formación</div>
+      <h3 class="sub-title cr">Formación</h3>
       <div class="neg-box">
         <div class="formula">no + subjuntivo (tú)</div>
         <p>Para el mandato negativo de tú, usa <strong>no</strong> + la forma <strong>tú del subjuntivo</strong>.</p>
@@ -357,9 +386,9 @@ body.high-contrast .neg-box{background:#1a0000}
     </div>
 
     <div class="sub">
-      <div class="sub-title cr">Afirmativo vs. Negativo</div>
+      <h3 class="sub-title cr">Afirmativo vs. Negativo</h3>
       <table class="ct">
-        <thead><tr><th class="nv">Mandato afirmativo (tú)</th><th class="cr">Mandato negativo (tú)</th></tr></thead>
+        <caption>Tabla comparativa: mandatos afirmativos vs. negativos</caption><thead><tr><th scope="col" class="nv">Mandato afirmativo (tú)</th><th scope="col" class="cr">Mandato negativo (tú)</th></tr></thead>
         <tbody>
           <tr><td>¡<em>Mira</em> la pantalla!</td><td>¡No <em>mires</em> la pantalla!</td></tr>
           <tr><td>¡<em>Imprime</em> el documento!</td><td>¡No <em>imprimas</em> el documento!</td></tr>
@@ -371,45 +400,45 @@ body.high-contrast .neg-box{background:#1a0000}
     </div>
 
   </div>
-</div>
+</section>
 
 <!-- ═══════════════════════════════════
      GRAM 34 — SUBJUNTIVO INTRO
 ════════════════════════════════════ -->
-<div class="card" id="gram34">
+<section class="card" id="gram34" aria-labelledby="gram34-heading">
   <div class="card-head gr">
-    <div class="card-num">34</div>
+    <div class="card-num" aria-hidden="true">34</div>
     <div class="card-title">
       <div class="lbl">Gramática · Cap. 12</div>
-      <h2>El Subjuntivo — Introducción</h2>
+      <h2 id="gram34-heading">El Subjuntivo — Introducción</h2>
     </div>
     <span class="card-chap">Cap. 12</span>
   </div>
   <div class="card-body">
 
     <div class="sub">
-      <div class="sub-title gr">Formación del presente de subjuntivo</div>
+      <h3 class="sub-title gr">Formación del presente de subjuntivo</h3>
       <div class="box gr">
         <p><strong>Regla USUAL:</strong> yo-form → quita la -o → añade terminaciones opuestas</p>
         <span class="ex">-AR verbs: -e, -es, -e, -emos, -éis, -en</span>
         <span class="ex">-ER/-IR verbs: -a, -as, -a, -amos, -áis, -an</span>
       </div>
       <table class="vt">
-        <thead><tr><th class="gr">Verbo</th><th class="gr">yo-form</th><th class="gr">Subj. yo</th><th class="gr">Subj. tú</th><th class="gr">Subj. ellos</th></tr></thead>
+        <caption>Conjugaciones del presente de subjuntivo</caption><thead><tr><th scope="col" class="gr">Verbo</th><th scope="col" class="gr">yo-form</th><th scope="col" class="gr">Subj. yo</th><th scope="col" class="gr">Subj. tú</th><th scope="col" class="gr">Subj. ellos</th></tr></thead>
         <tbody>
-          <tr><td>mandar</td><td>mando</td><td>mande</td><td>mandes</td><td>manden</td></tr>
-          <tr class="alt"><td>usar</td><td>uso</td><td>use</td><td>uses</td><td>usen</td></tr>
-          <tr><td>estudiar</td><td>estudio</td><td>estudie</td><td>estudies</td><td>estudien</td></tr>
-          <tr class="alt"><td>pasar</td><td>paso</td><td>pase</td><td>pases</td><td>pasen</td></tr>
-          <tr><td>tener</td><td>tengo</td><td>tenga</td><td>tengas</td><td>tengan</td></tr>
-          <tr class="alt"><td>decir</td><td>digo</td><td>diga</td><td>digas</td><td>digan</td></tr>
-          <tr><td>volver</td><td>vuelvo</td><td>vuelva</td><td>vuelvas</td><td>vuelvan</td></tr>
+          <tr><td scope="row">mandar</td><td>mando</td><td>mande</td><td>mandes</td><td>manden</td></tr>
+          <tr class="alt"><td scope="row">usar</td><td>uso</td><td>use</td><td>uses</td><td>usen</td></tr>
+          <tr><td scope="row">estudiar</td><td>estudio</td><td>estudie</td><td>estudies</td><td>estudien</td></tr>
+          <tr class="alt"><td scope="row">pasar</td><td>paso</td><td>pase</td><td>pases</td><td>pasen</td></tr>
+          <tr><td scope="row">tener</td><td>tengo</td><td>tenga</td><td>tengas</td><td>tengan</td></tr>
+          <tr class="alt"><td scope="row">decir</td><td>digo</td><td>diga</td><td>digas</td><td>digan</td></tr>
+          <tr><td scope="row">volver</td><td>vuelvo</td><td>vuelva</td><td>vuelvas</td><td>vuelvan</td></tr>
         </tbody>
       </table>
     </div>
 
     <div class="sub">
-      <div class="sub-title gr">¿Cuándo se usa el subjuntivo?</div>
+      <h3 class="sub-title gr">¿Cuándo se usa el subjuntivo?</h3>
       <div class="rule-box">
         <div class="rb-head gr">
           <span class="badge">REGLA CLAVE</span>
@@ -425,36 +454,36 @@ body.high-contrast .neg-box{background:#1a0000}
     </div>
 
     <div class="sub">
-      <div class="sub-title gr">Expresiones gatillo — Gramática 34</div>
-      <div class="tpills">
-        <div class="tpill"><span class="term">insistir en que</span><span class="ex">…que yo no mande…</span></div>
-        <div class="tpill"><span class="term">preferir que</span><span class="ex">…que los hijos no pasen…</span></div>
-        <div class="tpill"><span class="term">permitir que</span><span class="ex">…que mi hermana use…</span></div>
-        <div class="tpill"><span class="term">recomendar que</span><span class="ex">…que estudien mucho…</span></div>
-        <div class="tpill"><span class="term">sugerir que</span><span class="ex">…que tengan cuidado…</span></div>
-        <div class="tpill"><span class="term">es necesario que</span><span class="ex">…que tú digas la verdad…</span></div>
+      <h3 class="sub-title gr">Expresiones gatillo — Gramática 34</h3>
+      <div class="tpills" role="list" aria-label="Expresiones que requieren subjuntivo">
+        <div class="tpill" role="listitem"><span class="term">insistir en que</span><span class="ex">…que yo no mande…</span></div>
+        <div class="tpill" role="listitem"><span class="term">preferir que</span><span class="ex">…que los hijos no pasen…</span></div>
+        <div class="tpill" role="listitem"><span class="term">permitir que</span><span class="ex">…que mi hermana use…</span></div>
+        <div class="tpill" role="listitem"><span class="term">recomendar que</span><span class="ex">…que estudien mucho…</span></div>
+        <div class="tpill" role="listitem"><span class="term">sugerir que</span><span class="ex">…que tengan cuidado…</span></div>
+        <div class="tpill" role="listitem"><span class="term">es necesario que</span><span class="ex">…que tú digas la verdad…</span></div>
       </div>
     </div>
 
   </div>
-</div>
+</section>
 
 <!-- ═══════════════════════════════════
      GRAM 35 — SUBJUNTIVO INFLUENCIA
 ════════════════════════════════════ -->
-<div class="card" id="gram35">
+<section class="card" id="gram35" aria-labelledby="gram35-heading">
   <div class="card-head pl">
-    <div class="card-num">35</div>
+    <div class="card-num" aria-hidden="true">35</div>
     <div class="card-title">
       <div class="lbl">Gramática · Cap. 13</div>
-      <h2>El Subjuntivo — Verbos de Influencia</h2>
+      <h2 id="gram35-heading">El Subjuntivo — Verbos de Influencia</h2>
     </div>
     <span class="card-chap">Cap. 13</span>
   </div>
   <div class="card-body">
 
     <div class="sub">
-      <div class="sub-title pl">Estructura: DOS verbos en una oración</div>
+      <h3 class="sub-title pl">Estructura: DOS verbos en una oración</h3>
       <div class="box pl">
         <p>En el examen te dan DOS verbos entre paréntesis. El <strong>primero</strong> va en indicativo, el <strong>segundo</strong> en subjuntivo.</p>
         <span class="ex">Mi hermano y yo <strong>esperamos</strong> (esperar) que el abuelo <strong>aprenda</strong> (aprender) a descargar programas.</span>
@@ -465,41 +494,41 @@ body.high-contrast .neg-box{background:#1a0000}
     </div>
 
     <div class="sub">
-      <div class="sub-title pl">Verbos de influencia más comunes</div>
+      <h3 class="sub-title pl">Verbos de influencia más comunes</h3>
       <table class="vt">
-        <thead><tr><th class="pl">Verbo</th><th class="pl">Ejemplo indicativo</th><th class="pl">Notas</th></tr></thead>
+        <caption>Verbos de influencia — formas indicativas</caption><thead><tr><th scope="col" class="pl">Verbo</th><th scope="col" class="pl">Ejemplo indicativo</th><th scope="col" class="pl">Notas</th></tr></thead>
         <tbody>
-          <tr><td>esperar (que)</td><td>esperamos</td><td><span class="note">nosotros regular</span></td></tr>
-          <tr class="alt"><td>insistir en (que)</td><td>insiste</td><td><span class="note">él/ella regular</span></td></tr>
-          <tr><td>recomendar (que)</td><td>recomienda</td><td><span class="note">⚠️ e→ie stem change</span></td></tr>
-          <tr class="alt"><td>permitir (que)</td><td>permite</td><td><span class="note">él/ella regular</span></td></tr>
-          <tr><td>querer (que)</td><td>quiero/quiere</td><td><span class="note">⚠️ e→ie stem change</span></td></tr>
-          <tr class="alt"><td>desear (que)</td><td>desea</td><td><span class="note">regular</span></td></tr>
+          <tr><td scope="row">esperar (que)</td><td>esperamos</td><td><span class="note">nosotros regular</span></td></tr>
+          <tr class="alt"><td scope="row">insistir en (que)</td><td>insiste</td><td><span class="note">él/ella regular</span></td></tr>
+          <tr><td scope="row">recomendar (que)</td><td>recomienda</td><td><span class="note">⚠️ e→ie stem change</span></td></tr>
+          <tr class="alt"><td scope="row">permitir (que)</td><td>permite</td><td><span class="note">él/ella regular</span></td></tr>
+          <tr><td scope="row">querer (que)</td><td>quiero/quiere</td><td><span class="note">⚠️ e→ie stem change</span></td></tr>
+          <tr class="alt"><td scope="row">desear (que)</td><td>desea</td><td><span class="note">regular</span></td></tr>
         </tbody>
       </table>
     </div>
 
   </div>
-</div>
+</section>
 
 <!-- ═══════════════════════════════════
      GRAM 35+ — INFINITIVO vs SUBJUNTIVO
 ════════════════════════════════════ -->
-<div class="card" id="gram35b">
+<section class="card" id="gram35b" aria-labelledby="gram35b-heading">
   <div class="card-head gd">
-    <div class="card-num">⚠️</div>
+    <div class="card-num" aria-hidden="true">⚠️</div>
     <div class="card-title">
       <div class="lbl">Clave del examen · Q1</div>
-      <h2>Infinitivo vs. Subjuntivo — distinción crítica</h2>
+      <h2 id="gram35b-heading">Infinitivo vs. Subjuntivo — distinción crítica</h2>
     </div>
     <span class="card-chap">Caps. 12–13</span>
   </div>
   <div class="card-body">
 
     <div class="sub">
-      <div class="sub-title gd">La regla del cambio de sujeto</div>
+      <h3 class="sub-title gd">La regla del cambio de sujeto</h3>
       <table class="ct">
-        <thead><tr><th class="nv">INFINITIVO (mismo sujeto)</th><th class="pl">SUBJUNTIVO (sujeto diferente)</th></tr></thead>
+        <caption>Comparación: infinitivo vs. subjuntivo</caption><thead><tr><th scope="col" class="nv">INFINITIVO (mismo sujeto)</th><th scope="col" class="pl">SUBJUNTIVO (sujeto diferente)</th></tr></thead>
         <tbody>
           <tr><td class="lbl">No hay "que" ni cambio de sujeto</td><td class="lbl">Hay "que" + sujeto diferente</td></tr>
           <tr><td>Prefiero <strong>imprimir</strong> este documento. <br><span style="font-size:13px;color:#888">→ yo prefiero, yo imprimo</span></td>
@@ -511,7 +540,7 @@ body.high-contrast .neg-box{background:#1a0000}
     </div>
 
     <div class="sub">
-      <div class="sub-title gd">⚠️ Error frecuente — Q1 del examen oficial</div>
+      <h3 class="sub-title gd">⚠️ Error frecuente — Q1 del examen oficial</h3>
       <div class="box gd">
         <p><strong>Prefiero _______ este documento ahora.</strong></p>
         <p>❌ <em>imprima / imprimas</em> — subjuntivo requiere cambio de sujeto (<em>Prefiero que tú imprimas</em>)</p>
@@ -520,141 +549,141 @@ body.high-contrast .neg-box{background:#1a0000}
     </div>
 
   </div>
-</div>
+</section>
 
 <!-- ═══════════════════════════════════
      VOCABULARIO — LA CIUDAD
 ════════════════════════════════════ -->
-<div class="card" id="vocab-ciudad">
+<section class="card" id="vocab-ciudad" aria-labelledby="vocab-ciudad-heading">
   <div class="card-head tl">
-    <div class="card-num">V</div>
+    <div class="card-num" aria-hidden="true">V</div>
     <div class="card-title">
       <div class="lbl">Vocabulario · Cap. 12</div>
-      <h2>La ciudad</h2>
+      <h2 id="vocab-ciudad-heading">La ciudad</h2>
     </div>
     <span class="card-chap">Cap. 12</span>
   </div>
   <div class="card-body">
     <table class="vt">
-      <thead><tr><th class="tl">Palabra</th><th class="tl">Definición</th><th class="tl">Ejemplo</th></tr></thead>
+      <caption>Vocabulario: La ciudad</caption><thead><tr><th scope="col" class="tl">Palabra</th><th scope="col" class="tl">Definición</th><th scope="col" class="tl">Ejemplo</th></tr></thead>
       <tbody>
-        <tr><td>la dirección</td><td>el número y la calle donde vives</td><td>¿Cuál es tu dirección?</td></tr>
-        <tr class="alt"><td>los inquilinos</td><td>las personas que alquilan un apartamento</td><td>Los inquilinos pagan la renta.</td></tr>
-        <tr><td>el ascensor</td><td>aparato para subir y bajar en edificios altos</td><td>Toma el ascensor al piso 10.</td></tr>
-        <tr class="alt"><td>los vecinos</td><td>personas que viven en el mismo barrio</td><td>Mis vecinos son muy amables.</td></tr>
-        <tr><td>la parada</td><td>lugar donde se espera el metro o autobús</td><td>La parada está en la esquina.</td></tr>
-        <tr class="alt"><td>el propietario</td><td>dueño del apartamento o edificio</td><td>El propietario sube la renta.</td></tr>
-        <tr><td>el barrio</td><td>zona o vecindad de una ciudad</td><td>Vivo en un barrio tranquilo.</td></tr>
+        <tr><td scope="row">la dirección</td><td>el número y la calle donde vives</td><td>¿Cuál es tu dirección?</td></tr>
+        <tr class="alt"><td scope="row">los inquilinos</td><td>las personas que alquilan un apartamento</td><td>Los inquilinos pagan la renta.</td></tr>
+        <tr><td scope="row">el ascensor</td><td>aparato para subir y bajar en edificios altos</td><td>Toma el ascensor al piso 10.</td></tr>
+        <tr class="alt"><td scope="row">los vecinos</td><td>personas que viven en el mismo barrio</td><td>Mis vecinos son muy amables.</td></tr>
+        <tr><td scope="row">la parada</td><td>lugar donde se espera el metro o autobús</td><td>La parada está en la esquina.</td></tr>
+        <tr class="alt"><td scope="row">el propietario</td><td>dueño del apartamento o edificio</td><td>El propietario sube la renta.</td></tr>
+        <tr><td scope="row">el barrio</td><td>zona o vecindad de una ciudad</td><td>Vivo en un barrio tranquilo.</td></tr>
       </tbody>
     </table>
   </div>
-</div>
+</section>
 
 <!-- ═══════════════════════════════════
      VOCABULARIO — LA TECNOLOGÍA
 ════════════════════════════════════ -->
-<div class="card" id="vocab-tec">
+<section class="card" id="vocab-tec" aria-labelledby="vocab-tec-heading">
   <div class="card-head nv">
-    <div class="card-num">V</div>
+    <div class="card-num" aria-hidden="true">V</div>
     <div class="card-title">
       <div class="lbl">Vocabulario · Cap. 12</div>
-      <h2>La tecnología</h2>
+      <h2 id="vocab-tec-heading">La tecnología</h2>
     </div>
     <span class="card-chap">Cap. 12</span>
   </div>
   <div class="card-body">
     <table class="vt">
-      <thead><tr><th class="nv">Palabra</th><th class="nv">Significado</th><th class="nv">Ejemplo del examen</th></tr></thead>
+      <caption>Vocabulario: La tecnología</caption><thead><tr><th scope="col" class="nv">Palabra</th><th scope="col" class="nv">Significado</th><th scope="col" class="nv">Ejemplo del examen</th></tr></thead>
       <tbody>
-        <tr><td>las carpetas</td><td>folders to organize files</td><td>Pon los documentos en <strong>carpetas</strong>.</td></tr>
-        <tr class="alt"><td>publicar</td><td>to post/publish (online)</td><td>Mi amigo <strong>publica</strong> fotos en Instagram.</td></tr>
-        <tr><td>funcionar</td><td>to work/function (device)</td><td>Mi celular no <strong>funciona</strong>.</td></tr>
-        <tr class="alt"><td>la pantalla</td><td>screen</td><td>Su <strong>pantalla</strong> es muy pequeña.</td></tr>
-        <tr><td>el almacenamiento</td><td>storage space</td><td>Sin <strong>almacenamiento</strong>, no puedes guardar más.</td></tr>
-        <tr class="alt"><td>fallar</td><td>to fail/crash (hardware)</td><td>Mi disco duro <strong>falló</strong>.</td></tr>
-        <tr><td>la contraseña</td><td>password</td><td>Ten cuidado con tu <strong>contraseña</strong>.</td></tr>
-        <tr class="alt"><td>descargar</td><td>to download</td><td>¿Puedes <strong>descargar</strong> ese programa?</td></tr>
-        <tr><td>la computadora portátil</td><td>laptop computer</td><td>Mi <strong>computadora portátil</strong> es ligera.</td></tr>
-        <tr class="alt"><td>la impresora</td><td>printer</td><td>La <strong>impresora</strong> está en mi oficina.</td></tr>
-        <tr><td>el ratón</td><td>mouse (computer)</td><td>Usa el <strong>ratón</strong> para hacer clic.</td></tr>
-        <tr class="alt"><td>los auriculares</td><td>headphones</td><td>Escucha con los <strong>auriculares</strong>.</td></tr>
+        <tr><td scope="row">las carpetas</td><td>folders to organize files</td><td>Pon los documentos en <strong>carpetas</strong>.</td></tr>
+        <tr class="alt"><td scope="row">publicar</td><td>to post/publish (online)</td><td>Mi amigo <strong>publica</strong> fotos en Instagram.</td></tr>
+        <tr><td scope="row">funcionar</td><td>to work/function (device)</td><td>Mi celular no <strong>funciona</strong>.</td></tr>
+        <tr class="alt"><td scope="row">la pantalla</td><td>screen</td><td>Su <strong>pantalla</strong> es muy pequeña.</td></tr>
+        <tr><td scope="row">el almacenamiento</td><td>storage space</td><td>Sin <strong>almacenamiento</strong>, no puedes guardar más.</td></tr>
+        <tr class="alt"><td scope="row">fallar</td><td>to fail/crash (hardware)</td><td>Mi disco duro <strong>falló</strong>.</td></tr>
+        <tr><td scope="row">la contraseña</td><td>password</td><td>Ten cuidado con tu <strong>contraseña</strong>.</td></tr>
+        <tr class="alt"><td scope="row">descargar</td><td>to download</td><td>¿Puedes <strong>descargar</strong> ese programa?</td></tr>
+        <tr><td scope="row">la computadora portátil</td><td>laptop computer</td><td>Mi <strong>computadora portátil</strong> es ligera.</td></tr>
+        <tr class="alt"><td scope="row">la impresora</td><td>printer</td><td>La <strong>impresora</strong> está en mi oficina.</td></tr>
+        <tr><td scope="row">el ratón</td><td>mouse (computer)</td><td>Usa el <strong>ratón</strong> para hacer clic.</td></tr>
+        <tr class="alt"><td scope="row">los auriculares</td><td>headphones</td><td>Escucha con los <strong>auriculares</strong>.</td></tr>
       </tbody>
     </table>
   </div>
-</div>
+</section>
 
 <!-- ═══════════════════════════════════
      VOCABULARIO — LOS ARTISTAS
 ════════════════════════════════════ -->
-<div class="card" id="vocab-art">
+<section class="card" id="vocab-art" aria-labelledby="vocab-art-heading">
   <div class="card-head pl">
-    <div class="card-num">V</div>
+    <div class="card-num" aria-hidden="true">V</div>
     <div class="card-title">
       <div class="lbl">Vocabulario · Cap. 13</div>
-      <h2>Los artistas</h2>
+      <h2 id="vocab-art-heading">Los artistas</h2>
     </div>
     <span class="card-chap">Cap. 13</span>
   </div>
   <div class="card-body">
     <table class="vt">
-      <thead><tr><th class="pl">Artista</th><th class="pl">Qué hace/crea</th><th class="pl">Obra / artículo indefinido</th></tr></thead>
+      <caption>Vocabulario: Los artistas</caption><thead><tr><th scope="col" class="pl">Artista</th><th scope="col" class="pl">Qué hace/crea</th><th scope="col" class="pl">Obra / artículo indefinido</th></tr></thead>
       <tbody>
-        <tr><td>el compositor</td><td>componer</td><td><strong>una composición musical</strong></td></tr>
-        <tr class="alt"><td>el director</td><td>dirigir</td><td>dirige a <strong>unos actores</strong></td></tr>
-        <tr><td>el poeta</td><td>escribir</td><td><strong>un poema</strong></td></tr>
-        <tr class="alt"><td>el arquitecto</td><td>diseñar</td><td><strong>un edificio</strong></td></tr>
-        <tr><td>el escultor</td><td>hacer</td><td><strong>una escultura</strong></td></tr>
-        <tr class="alt"><td>la actriz</td><td>hacer un papel</td><td>en <strong>una película</strong></td></tr>
-        <tr><td>el bailarín</td><td>bailar</td><td>en <strong>un ballet</strong></td></tr>
-        <tr class="alt"><td>el músico</td><td>tocar</td><td><strong>un instrumento musical</strong></td></tr>
-        <tr><td>el escritor</td><td>escribir</td><td><strong>una novela</strong></td></tr>
-        <tr class="alt"><td>los espectadores</td><td>asistir</td><td>a un espectáculo de música</td></tr>
+        <tr><td scope="row">el compositor</td><td>componer</td><td><strong>una composición musical</strong></td></tr>
+        <tr class="alt"><td scope="row">el director</td><td>dirigir</td><td>dirige a <strong>unos actores</strong></td></tr>
+        <tr><td scope="row">el poeta</td><td>escribir</td><td><strong>un poema</strong></td></tr>
+        <tr class="alt"><td scope="row">el arquitecto</td><td>diseñar</td><td><strong>un edificio</strong></td></tr>
+        <tr><td scope="row">el escultor</td><td>hacer</td><td><strong>una escultura</strong></td></tr>
+        <tr class="alt"><td scope="row">la actriz</td><td>hacer un papel</td><td>en <strong>una película</strong></td></tr>
+        <tr><td scope="row">el bailarín</td><td>bailar</td><td>en <strong>un ballet</strong></td></tr>
+        <tr class="alt"><td scope="row">el músico</td><td>tocar</td><td><strong>un instrumento musical</strong></td></tr>
+        <tr><td scope="row">el escritor</td><td>escribir</td><td><strong>una novela</strong></td></tr>
+        <tr class="alt"><td scope="row">los espectadores</td><td>asistir</td><td>a un espectáculo de música</td></tr>
       </tbody>
     </table>
   </div>
-</div>
+</section>
 
 <!-- ═══════════════════════════════════
      TIPS SECTION
 ════════════════════════════════════ -->
-<div class="card" id="tips">
+<section class="card" id="tips" aria-labelledby="tips-heading">
   <div class="card-head gd">
-    <div class="card-num">★</div>
+    <div class="card-num" aria-hidden="true">★</div>
     <div class="card-title">
       <div class="lbl">Para el examen</div>
-      <h2>Tips y estrategias</h2>
+      <h2 id="tips-heading">Tips y estrategias</h2>
     </div>
     <span class="card-chap">Resumen</span>
   </div>
   <div class="card-body">
-    <div class="tips-grid">
-      <div class="tip">
-        <span class="tip-icon">⚡</span>
+    <div class="tips-grid" role="list" aria-label="Consejos para el examen">
+      <div class="tip" role="listitem">
+        <span class="tip-icon" aria-hidden="true">⚡</span>
         <div class="tip-head">Mandatos afirmativos · Cap. 12</div>
         <p>= forma él/ella del presente. Los 8 irregulares: <strong>Di Haz Ve Pon Sal Sé Ten Ven</strong>. Con pronombres, se añaden al final con acento: <em>mándale, hazme</em>.</p>
       </div>
-      <div class="tip">
-        <span class="tip-icon">🚫</span>
+      <div class="tip" role="listitem">
+        <span class="tip-icon" aria-hidden="true">🚫</span>
         <div class="tip-head">Mandatos negativos · Cap. 12</div>
         <p><strong>no + subjuntivo (tú)</strong>. Pasos: yo-form → quita -o → añade -es (-ar) o -as (-er/-ir). <em>sacar → sac-o → no saques</em>.</p>
       </div>
-      <div class="tip">
-        <span class="tip-icon">🔀</span>
+      <div class="tip" role="listitem">
+        <span class="tip-icon" aria-hidden="true">🔀</span>
         <div class="tip-head">Infinitivo vs. Subjuntivo · Q1 ⚠️</div>
         <p>¿Mismo sujeto? → <strong>infinitivo</strong>. ¿Sujeto diferente + que? → <strong>subjuntivo</strong>. <em>Prefiero imprimir</em> ✓ vs. <em>Prefiero que tú imprimas</em> ✓.</p>
       </div>
-      <div class="tip">
-        <span class="tip-icon">✍️</span>
+      <div class="tip" role="listitem">
+        <span class="tip-icon" aria-hidden="true">✍️</span>
         <div class="tip-head">Dos verbos (Gram 35)</div>
         <p>Primer verbo → <strong>indicativo</strong>. Segundo verbo (después de que) → <strong>subjuntivo</strong>. Ej: <em>esperamos / aprenda, recomienda / lean</em>.</p>
       </div>
-      <div class="tip">
-        <span class="tip-icon">🎨</span>
+      <div class="tip" role="listitem">
+        <span class="tip-icon" aria-hidden="true">🎨</span>
         <div class="tip-head">Artistas (Cap. 13)</div>
         <p>Aprende los pares artista-obra: bailarín → ballet, compositor → composición musical, arquitecto → edificio, escultor → escultura.</p>
       </div>
-      <div class="tip">
-        <span class="tip-icon">💻</span>
+      <div class="tip" role="listitem">
+        <span class="tip-icon" aria-hidden="true">💻</span>
         <div class="tip-head">Tecnología (Cap. 12)</div>
         <p>Verbos clave: <strong>fallar</strong> (crash), <strong>publicar</strong> (post online), <strong>funcionar</strong> (work/operate), <strong>descargar</strong> (download), <strong>almacenar</strong> (store).</p>
       </div>
@@ -663,9 +692,9 @@ body.high-contrast .neg-box{background:#1a0000}
 </div>
 
 </div><!-- /content -->
-</div><!-- /main -->
+</main><!-- /main -->
 
-<a href="#top" class="back-top" aria-label="Volver arriba">↑</a>
+<a href="#top" class="back-top" aria-label="Volver al inicio de la página"><span aria-hidden="true">↑</span></a>
 
 <script>
 // Nav active link
@@ -688,11 +717,15 @@ function setSize(size){
   const map={normal:'btnNormal',large:'btnLarge',xlarge:'btnXLarge'};
   document.getElementById(map[size]).classList.add('active');
   try{localStorage.setItem('a11y-size',size)}catch(e){}
+  const ann=document.getElementById('a11y-announce');if(ann){const labels={normal:'Tamaño de texto normal',large:'Texto grande activado',xlarge:'Texto muy grande activado'};ann.textContent='';setTimeout(()=>{ann.textContent=labels[size]||''},50);}
+  const ann=document.getElementById('a11y-announce');if(ann){const labels={normal:'Tamaño de texto normal',large:'Texto grande activado',xlarge:'Texto muy grande activado'};ann.textContent=labels[size]||'';}
 }
 function toggleContrast(){
   const on=document.body.classList.toggle('high-contrast');
   document.getElementById('btnContrast').classList.toggle('active',on);
   try{localStorage.setItem('a11y-contrast',on?'1':'')}catch(e){}
+  const ann2=document.getElementById('a11y-announce');if(ann2){ann2.textContent='';setTimeout(()=>{ann2.textContent=on?'Modo de alto contraste activado':'Modo de alto contraste desactivado'},50);}
+  const ann2=document.getElementById('a11y-announce');if(ann2)ann2.textContent=on?'Modo de alto contraste activado':'Modo de alto contraste desactivado';
 }
 try{
   const s=localStorage.getItem('a11y-size');
@@ -701,5 +734,7 @@ try{
   if(c) toggleContrast();
 }catch(e){}
 </script>
+
+<div aria-live="polite" aria-atomic="true" class="sr-only" id="a11y-announce"></div>
 </body>
 </html>
